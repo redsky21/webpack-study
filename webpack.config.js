@@ -2,7 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const childProcess = require('child_process');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MinCssExtreactPlugin = require('mini-css-extract-plugin');
+// const MinCssExtreactPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports =
     {
         mode: "development",
@@ -18,6 +19,7 @@ module.exports =
                 {
                     test: /\.css$/, //로더가 처리해야할 패턴 정규표현식
                     use: [
+                        process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader :
                         'style-loader',
                         'css-loader'
                     ]
@@ -52,7 +54,9 @@ module.exports =
                     env: process.env.NODE_ENV === 'development' ? '(개발용)': ''
 }
             }),
+            ...(
             process.env.NODE_ENV === 'production'?
-            new MinCssExtreactPlugin({filename: '[name].css'}):false
+            [new MiniCssExtractPlugin({filename: '[name].css'})]:[]
+            )
         ]
     }
