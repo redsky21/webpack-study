@@ -1,56 +1,33 @@
-#
-# Project specific excludes
-#
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-tomcat
+# dependencies
+**/node_modules
+/.pnp
+.pnp.js
 
-#
-# Default excludes
-#
+# testing
+/coverage
 
-# Binaries
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.war
-*.ear
-*.sar
-*.class
+# production
+**/build
+**/dist
+**/tsconfig.tsbuildinfo
 
-# Maven
-target/
-
-# IntelliJ project files
-*.iml
-*.iws
-*.ipr
-.idea/
-
-# eclipse project file
-.settings/
-.classpath
-.project
-
-# NetBeans specific
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-node_modules/
-
-# OS
+# misc
 .DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Misc
-*.swp
-release.properties
-pom.xml.releaseBackup
-pom.xml.tag
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.pid
+### VS Code ###
+.vscode/
