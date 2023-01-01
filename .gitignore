@@ -30,4 +30,4 @@ yarn-error.log*
 *.ipr
 *.pid
 ### VS Code ###
-.vscode/
+/.vscode/
